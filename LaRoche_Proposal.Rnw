@@ -277,10 +277,10 @@ CLR(\mathbf{X}) = G_D \text{ log}(\mathbf{X}),
 
 where $G_D  = I_D - D^{-1}J_D$ with $I_D$ the $D \times D$ identity matrix and $J_D$ a $D \times D$ matrix of 1's.  The matrix $G_D$ is an idempotent linear transformation and, therefore, a projection which takes a $D$-dimensional composition from $\mathcal{S}^d$ to  $\mathcal{R}^d$.  Recognizing the CLR as a projection from the simplex space to Euclidean space has important implications for the application of traditional statistical methods to the transformed data.\\
 
-The CPM transformation can be simplified to the log of the compositional closure operation by removing the multiplication by $10^6$ and the addition of constants to both the numerator and denominator of the ratio.  The resulting operation, $CPM*$ can then be achieved through the matrix operation:
+The CPM transformation can be simplified to the log of the compositional closure operation by removing the multiplication by $10^6$ and the addition of constants to both the numerator and denominator of the ratio.  The resulting operation, $CPM^*$ can then be achieved through the matrix operation:
 
 \begin{equation}
-CPM*(\mathbf{X}) = log( C_N \mathbf{X}),
+CPM^*(\mathbf{X}) = log( C_N \mathbf{X}),
 \label{CPMmat}
 \end{equation}
 
@@ -298,10 +298,10 @@ CLR(x_i) &= log\left(\frac{x_i}{g(\mathbf{x})} \right)\\
 \end{align}
 
 
-The simplified CPM does not have a similar interpretation.  Rather, the CPM subtracts the log of the sum of un-transformed components which has no clear interpretation.
+The simplified $CPM^*$ does not have a similar interpretation.  Rather, the CPM subtracts the log of the sum of un-transformed components which has no clear interpretation.
 
 \begin{align}
-CPM*(x_i) &= log\left(\frac{x_i}{\sum \mathbf{x} })\\
+CPM^*(x_i) &= log\left(\frac{x_i}{\sum \mathbf{x} } \right)\\
   &= log(x_i) - log(\sum \mathbf{x})
 \label{logTotal}
 \end{align}
@@ -309,7 +309,8 @@ CPM*(x_i) &= log\left(\frac{x_i}{\sum \mathbf{x} })\\
 
 %%%%Focus on the difference in geometry between the cpm projection and the CLR projection.  Is the CPM even a projection? - Doesn't appear to be
 %
-This difference plays an important role in principal components analysis (PCA) and the measurement of distance.  With respect to PCA, the centering acheived through the CLR transformation . \\
+This difference plays an important role in principal components analysis (PCA) and the measurement of distance.  With respect to PCA, Aitchison (1983)~\cite{Aitchison1983} identifies 3 important properties of a transformation which make it suitable for principle components analysis: 1) it must have an interpretable covariance structure, 2) it must be symmetric in its treatment of the components (invariant to permutations), and 3) it must deal with the inherent curvature of compositions.  Both the CLR and the CPM address the curvature problem to some degree through the use of the log transformation.%Not really sure about this
+The CLR transformation additionally removes the sum constraint which complicates the interpreation of the covariance matrix (and the resulting eigenvalues and eigenvectors) while preserving the symmetry of treatment of the components. \\
 
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
