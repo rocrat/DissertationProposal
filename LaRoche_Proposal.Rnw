@@ -204,6 +204,22 @@ $$d_A(x_i, x_j) = \left[\sum_{k=1}^D \left( clr(x_{ik}) - clr(x_{jk}) \right)^2 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsubsection{Compositional Invariance}
+\label{sec:compInv}
+
+Up to this point I have assumed that the size of a composition, i.e. the sum of the components, contains no information.  Aitchison (1986)~\cite{Aitchison1986} refers to a raw composition as a basis and points out that for any given composition, $\mathbf{x}: \sum \mathbf{x}=1$ there are an uncountable number of bases which can be acheived by scaling the composition by a constant; 
+
+\begin{equation}
+\mathbf{w} = t\mathbf{x},
+\end{equation}
+
+where $t = \sum \mathbf{w}$.\\
+
+Aitchison defines compositonal invariance as the statistical independence of $\mathbf{x}$ and $t$.  He then defines a test for compositional invariance based on the covariance between the composition formed by the basis through the closure operation and the basis size, $t$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Zeros and Missing Components}
 \label{sec:zeros}
@@ -236,7 +252,7 @@ The choice of $c$ can be different for each zero component but determining the a
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Sub-Compositions}
+\subsubsection{Sub-Compositions}
 \label{subsec:subcomp}
 
 It is often desirable to evaluate only a portion of the initial set of genes measured, e.g. when comparing two assays with different but overlapping probe sets or when interrogating  a subset of oncogenes from a larger assay.  It is then necessary to ensure that the resulting sub-composition does not depend on the other components in the initial composition such that variations in a component outside the sub-composition do not affect inferences made from the sub-composition.  I.e. the resulting sub-composition should adhere to the principle of sub-compositional coherence (see~\ref{subsec:fund}).  In order to ensure the sub-composition is independent of the omitted values from the full composition.\\
@@ -360,7 +376,7 @@ The authors fail to formulate the problem in terms of the components of a compos
 
 %toy example here?
 
-\section{Proposed Research}
+\chapter{Proposed Research}
 
 \subsection{Composition based quality control for targeted RNA-Seq}
 
