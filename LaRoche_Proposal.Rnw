@@ -215,7 +215,31 @@ Up to this point I have assumed that the size of a composition, i.e. the sum of 
 
 where $t = \sum \mathbf{w}$.\\
 
-Aitchison defines compositonal invariance as the statistical independence of $\mathbf{x}$ and $t$.  He then defines a test for compositional invariance based on the covariance between the composition formed by the basis through the closure operation and the basis size, $t$.
+Aitchison defines compositonal invariance as the statistical independence of $\mathbf{x}$ and $t$.  He then defines a test for compositional invariance based on the covariance between the composition formed from the basis through the closure operation and the basis size, $t$.  This is accomplished through the linear model, 
+
+\begin{equation}
+\mathbf{Y = A \Theta + E}
+\label{compInvariance}
+\end{equation}
+
+where $\mathbf{Y}$ is the ALR transformed composition array,  $\mathbf{A}$ is an $N \times 2$ matrix with $r$th row $\left[\text{1 log } t_r \right]$, and 
+
+\begin{equation}
+\mathbf{\Theta} = \left[
+  \begin{array}{c}
+  \alpha_1 \ldots \alpha_d\\
+  \beta_1 \ldots \beta_d\\
+  \end{array}
+  \right].
+\label{compInvTheta}
+\end{equation}
+
+The statistical hypothesis of compositional invariance is that $\beta_1 = \cdots = \beta_d = 0$\\
+
+If the data satisfy the assumption of logistic normality then hypothesis testing can be acheived%...
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -375,6 +399,19 @@ The authors fail to formulate the problem in terms of the components of a compos
 
 
 %toy example here?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \chapter{Proposed Research}
 
