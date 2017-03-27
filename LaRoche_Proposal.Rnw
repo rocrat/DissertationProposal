@@ -4,7 +4,10 @@
 \usepackage[backend=bibtex,backref=true,hyperref=true]{biblatex}
 \addbibresource{proportionality.bib}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{setspace}
+
+\newtheorem{mydef}{Definition}
 
 \title{Dissertation Proposal:\\ Methods for the Analysis of Compositional RNA Sequence Data}
 \author{Dominic D LaRoche}
@@ -349,9 +352,41 @@ CPM^*(x_i) &= log\left(\frac{x_i}{\sum \mathbf{x} } \right)\\
 
 %%%%Focus on the difference in geometry between the cpm projection and the CLR projection.  Is the CPM even a projection? - Doesn't appear to be
 %
-This difference plays an important role in principal components analysis (PCA) and the measurement of distance.  With respect to PCA, Aitchison (1983)~\cite{Aitchison1983} identifies 3 important properties of a transformation which make it suitable for principle components analysis: 1) it must have an interpretable covariance structure, 2) it must be symmetric in its treatment of the components (invariant to permutations), and 3) it must deal with the inherent curvature of compositions.  Both the CLR and the CPM address the curvature problem to some degree through the use of the log transformation.%Not really sure about this
-The CLR transformation additionally removes the sum constraint which complicates the interpreation of the covariance matrix (and the resulting eigenvalues and eigenvectors) while preserving the symmetry of treatment of the components. \\
+This difference plays an important role in principal components analysis (PCA) and the measurement of distance.  With respect to PCA, Aitchison (1983)~\cite{Aitchison1983} identifies 3 important properties of a transformation which make it suitable for principle components analysis: 1) it must have an interpretable covariance structure, 2) it must be symmetric in its treatment of the components (invariant to permutations), and 3) it must deal with the inherent curvature of compositions.   \\
 
+The inherent curavature of compositions leads to problems with measuring distance.  Specifically, the distance metric between any two compositions must be invariant to changes of location.  In the simplex, changes in location are acheived through the perturbation operator which is the compositional equivalent of translation in euclidean space (see~\ref{subsubsec:perturbation}).  Therefore, any distance metric must be invariant to equal changes in location of the two compositions.
+
+\begin{mydef}
+Perturbation invariance for a composition is defined as
+\begin{equation}
+D(q\odot x, q \odot y) = D(x, y),
+\label{pertInv}
+\end{equation}
+
+where D() is any distance metric.
+\end{mydef}
+
+
+This property is analogous to translation invariance for Euclidean distance metrics.  The CLR transformation results in perturbation invariance when used with standard Euclidean distance. Let $\mathbf{q}$ be a $D$-dimensional perturbation.  Additionally, let $\mathbf{x}$ and $\mathbf{y}$ represent two $D$-dimensional compositions.  Applying the Euclidean distance metric to CLR transformed x and y we have,
+
+\begin{align}
+D(x, y) &= \left[ \sum_i^D \left(  log \left(\frac{x_i}{g(\mathbf{x})} \right) - log\left(\frac{y_i}{g(\mathbf{y})} \right) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{x_i}{y_i} \right) - log(g(\mathbf{x})) + log(g(\mathbf{y})) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{x_i}{y_i} \right) - \frac{\sum_i^D log \mathbf{x}}{D} + \frac{\sum_i^D log \mathbf{y}}{D} \right)^2 \right]^{1/2}
+  \label{CLRdist}
+\end{align}
+
+Set $\mathbf{u} = \mathbf{q} \odot \mathbf{x}$ and $\mathbf{v} = \mathbf{q} \odot \mathbf{y}$.  Equation~\ref{CLRdist} then becomes,
+
+\begin{align}
+D(u, v) &= \left[ \sum_i^D \left( log \left(\frac{u_i}{v_i} \right) - \frac{\sum log \mathbf{u}}{D} + \frac{\sum log \mathbf{v}}{D} \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{q_ix_i}{q_iy_i} \right) - \frac{\sum_i^D log q_ix_i}{D} + \frac{\sum_i^D log q_iy_i}{D} \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{q_ix_i}{q_iy_i} \right) - \frac{\sum_i^D log q_i + \sum_i^D log x_i}{D} + \frac{\sum_i^D log q_i + \sum_i^D y_i}{D} \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{x_i}{y_i} \right) - \frac{\sum_i^D log q_i}{D} - \frac{\sum_i^D log x_i}{D} + \frac{\sum_i^D log q_i}{D} + \frac{\sum_i^D y_i}{D} \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_i^D \left( log \left(\frac{x_i}{y_i} \right) - \frac{\sum_i^D log \mathbf{x}}{D} + \frac{\sum_i^D log \mathbf{y}}{D} \right)^2 \right]^{1/2}\\
+  &= D(x, y)
+\label{CLRpertDist}
+\end{align}
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
