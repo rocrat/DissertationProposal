@@ -357,13 +357,13 @@ This difference plays an important role in principal components analysis (PCA) a
 The inherent curavature of compositions leads to problems with measuring distance.  Specifically, the distance metric between any two compositions must be invariant to changes of location.  In the simplex, changes in location are acheived through the perturbation operator which is the compositional equivalent of translation in euclidean space (see~\ref{subsubsec:perturbation}).  Therefore, any distance metric must be invariant to equal changes in location of the two compositions.
 
 \begin{mydef}
-Perturbation invariance for a composition is defined as
+Perturbation invariance for a distance metric, $D$, is defined as;
 \begin{equation}
 D(q\odot x, q \odot y) = D(x, y),
 \label{pertInv}
 \end{equation}
 
-where D() is any distance metric.
+where $D$() is any distance metric applied to two compositions $x$ and $y$.
 \end{mydef}
 
 
@@ -387,6 +387,28 @@ D(u, v) &= \left[ \sum_i^D \left( log \left(\frac{u_i}{v_i} \right) - \frac{\sum
   &= D(x, y)
 \label{CLRpertDist}
 \end{align}
+
+The same distance metric is applied to $CPM^*$ transformed data results in distances which depend on the perturbation $\mathbf{q}$.
+
+\begin{align}
+D(x, y) &= \left[ \sum_{i=1}^D \left( log\left( \frac{x_i}{\sum \mathbf{x}} \right) - log\left( \frac{y_i}{\sum \mathbf{y}} \right) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_{i=1}^D \left( log(x_i) - log(y_i) - log(\sum \mathbf{x}) + log(\sum \mathbf{y}) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_{i=1}^D \left( log\left( \frac{x_i}{y_i} \right) + log\left( \frac{\sum \mathbf{x}}{\sum \mathbf{y}} \right) \right)^2 \right]^{1/2}
+\label{CPMDist}
+\end{align}
+
+Again, let $\mathbf{u} = \mathbf{q} \odot \mathbf{x}$ and $\mathbf{v} = \mathbf{q} \odot \mathbf{y}$.  Equation~\ref{CPMDist} then becomes,
+
+\begin{align}
+D(u, v) &= \left[ \sum_{i=1}^D \left( log\left( \frac{u_i}{v_i} \right) + log\left( \frac{\sum \mathbf{u}}{\sum \mathbf{v}} \right) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_{i=1}^D \left( log\left( \frac{q_ix_i}{q_iy_i} \right) + log\left( \frac{\sum_{i = 1}^D q_iy_i}{\sum_{i = 1}^D q_ix_i} \right) \right)^2 \right]^{1/2}\\
+  &= \left[ \sum_{i=1}^D \left( log\left( \frac{x_i}{y_i} \right) + log\left( \frac{\sum_{i = 1}^D q_iy_i}{\sum_{i = 1}^D q_ix_i} \right) \right)^2 \right]^{1/2}\\
+  &= D(x, y) \iff q_i = k ~\forall~ i \in 1 \dots D,
+\label{CPMpertDist}
+\end{align}
+
+where $k$ is a constant.  The distance between two $CPM^*$ transformed compositions will change when both compositions are shifted by the same perturbation unless the perturbation is a constant.  
+
 
 %write out what the covariance matrix is using the total rather than the geometric mean, then work out how this would affect measures of distance and correlation
 
